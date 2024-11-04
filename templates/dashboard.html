@@ -1,0 +1,90 @@
+{% extends 'home.html' %}
+
+
+{% block conteudo %}
+    <h1>DASHBOARD DO CONTROLE DE ESTOQUE</h1>
+
+        <div class="metrics">
+            <div class="metric">
+                <h2>TAXA DE VENDAS</h2>
+                <p>75%</p>
+            </div>
+            <div class="metric">
+                <h2>QUANTIDADE DE PRODUTOS</h2>
+                <p>400 unidades</p>
+            </div>
+            <div class="metric">
+                <h2>VALOR DO ESTOQUE</h2>
+                <p>R$ 19.000</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="card">
+                <h2>Gráfico de Vendas por Marcas</h2>
+                <canvas id="brandChart"></canvas>
+            </div>
+
+            <div class="card">
+                <h2>Gráfico de Vendas ao Longo do Tempo</h2>
+                <canvas id="salesTrendChart"></canvas>
+            </div>
+        </div>
+
+
+    <script>
+        // Gráfico de Vendas por Marcas
+        const ctxBrand = document.getElementById('brandChart').getContext('2d');
+        const brandChart = new Chart(ctxBrand, {
+            type: 'bar',
+            data: {
+                labels: ['IMPALA', 'RISQUÉ', 'COLORAMA'],
+                datasets: [{
+                    label: 'Vendas (R$)',
+                    data: [8000, 6000, 5000, 3000, 2000],
+                    backgroundColor: 'rgba(204, 153, 255, 0.6)', // Lilás claro
+                    borderColor: 'rgba(153, 102, 255, 1)', // Lilás escuro
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Gráfico de Vendas ao Longo do Tempo
+        const ctxSalesTrend = document.getElementById('salesTrendChart').getContext('2d');
+        const salesTrendChart = new Chart(ctxSalesTrend, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
+                datasets: [{
+                    label: 'Vendas (R$)',
+                    data: [3000, 2500, 4000, 5000, 6000, 7000],
+                    backgroundColor: 'rgba(204, 153, 255, 0.6)', // Lilás claro
+                    borderColor: 'rgba(153, 102, 255, 1)', // Lilás escuro
+                    borderWidth: 2,
+                    fill: true
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Meses'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+{% endblock conteudo %}

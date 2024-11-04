@@ -1,0 +1,25 @@
+{% extends 'home.html' %}
+{% block conteudo %}
+    <form>
+        <h2 style="font-weight: 650;">RETIRAR ESMALTE</h2>
+
+        <div class="input-group" style="width: 40%;">
+            <select class="form-select" id="inputGroupSelect01" style="height: 39px; border-radius: 10px;">
+                <option selected>Selecione a marca</option>
+                <option value="1">Impala</option>
+                <option value="2">Risqué</option>
+                <option value="3">Colorama</option>
+            </select>
+        </div>
+
+        <div class="input-group" style="width: 40%;">
+            <select class="form-select" id="inputGroupSelect01" style="height: 39px; border-radius: 10px;">
+                <option selected>Selecione o esmalte</option>
+            </select>
+        </div>
+
+        <input type="number" placeholder="Insira a quantidade" id="quantity" name="quantity" min="1" max="100" step="1">
+
+        <button type="submit" class="btn" style="width: 10%; border-radius: 10px; padding: 10px">RETIRAR</button>
+    </form>
+{% endblock conteudo %}

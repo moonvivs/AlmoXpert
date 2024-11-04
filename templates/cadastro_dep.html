@@ -1,0 +1,15 @@
+{% extends 'home.html' %}
+{% block conteudo %}
+    <form method="POST" action="/cadastro_dep">
+        <h3 style="font-weight: 650;">CADASTRO</h3>
+
+        <input type="text" id="nome" placeholder="Digite seu nome" required>
+
+        <input type="text" id="cpf" placeholder="Digite seu Cpf" required>
+
+        <input type="password" id="senha" placeholder="Digite sua senha" required>
+
+        <button type="submit" class="btn" style="width: 10%; border-radius: 10px;">CADASTRAR</button>
+    </form>
+{% endblock conteudo %}
+
